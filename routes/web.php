@@ -12,6 +12,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])
 ->resource('inventario', InventarioController::class)
 ->names('inventario');
 
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

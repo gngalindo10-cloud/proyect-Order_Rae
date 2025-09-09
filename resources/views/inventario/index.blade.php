@@ -5,7 +5,14 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12"> 
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-4 flex justify-end">
+            {{-- Botón crear --}}
+            <a href="{{ route('inventario.create') }}"
+                class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                Crear Producto
+            </a>
+        </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white p-4">
                 <table id="inventario" class="display w-full text-sm text-center text-black">
