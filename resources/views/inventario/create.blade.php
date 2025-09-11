@@ -8,6 +8,8 @@
         <form action="#" method="POST" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
             @csrf
             
+            <div class="flex justify-center"></div>
+
             <!-- Referencia -->
             <div class="relative z-0 w-full mb-5 group">
                 <input type="text" name="referencia" id="referencia" class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
