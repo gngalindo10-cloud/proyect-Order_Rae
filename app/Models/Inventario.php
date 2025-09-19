@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $usuarios_id
  * 
  * @property Usuario $usuario
- * @property Collection|Producto[] $productos
+ * @property Collection|Producto[] $producto
  *
  * @package App\Models
  */
@@ -32,7 +32,9 @@ class Inventario extends Model
 {
 	protected $table = 'inventario';
 	protected $primaryKey = 'ID_INVENTARIO';
-	public $timestamps = false;
+	public $timestamps = true;
+	const CREATED_AT = 'Created_at';
+	const UPDATED_AT = 'Updated_at';
 
 	protected $casts = [
 		'Created_at' => 'datetime',
@@ -46,8 +48,6 @@ class Inventario extends Model
 		'Color_producto',
 		'Cantidad_producto',
 		'Estado_producto',
-		'Created_at',
-		'Updated_at',
 		'usuarios_id'
 	];
 
@@ -56,8 +56,9 @@ class Inventario extends Model
 		return $this->belongsTo(Usuario::class, 'usuarios_id');
 	}
 
-	public function productos()
+	public function producto()
 	{
-		return $this->hasMany(Producto::class);
+		return $this->hasMany(Producto::class, 'inventario_id');
 	}
+	
 }

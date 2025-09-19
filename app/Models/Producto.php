@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $ID_PRODUCTO
  * @property string $Referencia_producto
- * @property string $Nombre_producto
  * @property string $Categoria_producto
  * @property string $Color_producto
  * @property int $Cantidad_producto
@@ -36,7 +35,9 @@ class Producto extends Model
 {
 	protected $table = 'producto';
 	protected $primaryKey = 'ID_PRODUCTO';
-	public $timestamps = false;
+	public $timestamps = true;
+	const CREATED_AT = 'Created_at';
+	const UPDATED_AT = 'Updated_at';
 
 	protected $casts = [
 		'Cantidad_producto' => 'int',
@@ -48,12 +49,9 @@ class Producto extends Model
 
 	protected $fillable = [
 		'Referencia_producto',
-		'Nombre_producto',
 		'Categoria_producto',
 		'Color_producto',
 		'Cantidad_producto',
-		'Created_at',
-		'Updated_at',
 		'usuarios_id',
 		'inventario_id'
 	];
@@ -65,7 +63,7 @@ class Producto extends Model
 
 	public function inventario()
 	{
-		return $this->belongsTo(Inventario::class);
+		return $this->belongsTo(Inventario::class, 'inventario_id');
 	}
 
 	public function pedidos()

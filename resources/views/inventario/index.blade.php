@@ -5,16 +5,37 @@
         </h2>
     </x-slot>
 
-    <div class="py-12"> 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-4 flex justify-end">
-            {{-- Botón crear --}}
-            <a href="{{ route('inventario.create') }}"
-                class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-                Crear Producto
-            </a>
-        </div>
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white p-4">
+
+            {{-- NOTIFICACIONES  --}}
+            @if(session('Ok'))
+                <div class="mb-6 max-w-lg mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md" role="alert">
+                    <p class="font-bold"> ¡OK!</p>
+                    <p>{{ session('Ok') }}</p>
+                </div>
+            @endif
+
+            @if($errors->any())
+                <div class="mb-6 max-w-lg mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md" role="alert">
+                    <p class="font-bold">¡Error!</p>
+                    <ul class="list-disc list-inside">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            {{-- Botón crear --}}
+            <div class="mb-4 flex justify-end">
+                <a href="{{ route('inventario.create') }}"
+                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                    Crear Producto
+                </a>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow">
                 <table id="inventario" class="display w-full text-sm text-center text-black">
                     <thead class="text-base text-gray-500 uppercase bg-gray-50">
                         <tr>
@@ -23,7 +44,7 @@
                             <th>Color</th>
                             <th>Cantidad</th>
                             <th>Estado</th>
-                            <th>Acciones</th> 
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,9 +55,18 @@
                                 <td>{{ $items->Color_producto }}</td>
                                 <td>{{ $items->Cantidad_producto }}</td>
                                 <td>{{ $items->Estado_producto }}</td>
-                                <td>
-                                    <a href="#" class="bg-blue-600 hover:text-blue-500 text-white py-2 px-4 rounded-md">Editar</a>
-                                    <a href="#" class="bg-red-600 hover:text-red-500 text-white py-2 px-4 rounded-md">Eliminar</a>
+                                <td class="px-6 py-4 gap-2 flex justify-center">
+                                    <a href="{{ route('inventario.edit', $items) }}"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+                                        Editar
+                                    </a>
+                                    <form action="{{ route('inventario.destroy', $items) }}" method="POST"
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
+                                        style="display:inline" onsubmit="return confirm('¿Deseas eliminar este producto?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -49,7 +79,7 @@
     {{-- jQuery + DataTables (CDN) --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-    
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>

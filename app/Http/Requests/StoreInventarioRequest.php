@@ -6,49 +6,39 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreInventarioRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
-        return true ;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            'Referencia' => 'required|string|max:100|unique:inventarios,Referencia',
-            'Categoría'=> 'required|string|max:100',
-            'Color'=> 'nullable|string|max:100',
-            'Cantidad'=> 'required|integer|min:0',
-            'Estado'=> 'required|string|max:100',
+            'Referencia_producto' => 'required|string|max:50', 
+            'Categoria_producto' => 'required|string|max:50',
+            'Color_producto' => 'required|string|max:30',
+            'Cantidad_producto' => 'required|integer|min:0',
+            'Estado_producto' => 'required|string|in:Disponible,Agotado,En Producción',
+            'usuarios_id' => 'required|integer|exists:usuarios,ID_USUARIO',
         ];
     }
 
-    public function messages() 
-{
-         return [
-            'Referencia.required' => 'La referencia es obligatoria.',
-            'Referencia.string' => 'La referencia debe ser una cadena de texto.',
-            'Referencia.max' => 'La referencia no debe exceder los 100 caracteres.',
-            'Referencia.unique' => 'La referencia ya existe en el inventario.',
-            'Categoría.required' => 'La categoría es obligatoria.',
-            'Categoría.string' => 'La categoría debe ser una cadena de texto.',
-            'Categoría.max' => 'La categoría no debe exceder los 100 caracteres.',
-            'Color.string' => 'El color debe ser una cadena de texto.',
-            'Color.max' => 'El color no debe exceder los 100 caracteres.',
-            'Cantidad.required' => 'La cantidad es obligatoria.',
-            'Cantidad.integer' => 'La cantidad debe ser un número entero.',
-            'Cantidad.min' => 'La cantidad no puede ser negativa.',
-            'Estado.required' => 'El estado es obligatorio.',
-            'Estado.string' => 'El estado debe ser una cadena de texto.',
-            'Estado.max' => 'El estado no debe exceder los 100 caracteres.',
-    ];
-}
-
+    public function messages()
+    {
+        return [
+            'Referencia_producto.required' => 'La referencia es obligatoria.',
+            'Referencia_producto.exists' => 'El producto con esta referencia no existe. Regístrelo primero.', 
+            'Categoria_producto.required' => 'La categoría es obligatoria.',
+            'Color_producto.required' => 'El color es obligatorio.',
+            'Cantidad_producto.required' => 'Debe ingresar la cantidad.',
+            'Cantidad_producto.integer' => 'La cantidad debe ser un número entero.',
+            'Cantidad_producto.min' => 'La cantidad no puede ser negativa.',
+            'Estado_producto.required' => 'Debe indicar el estado del producto.',
+            'Estado_producto.in' => 'El estado debe ser: Disponible, Agotado o En Producción.',
+            'Created_at.required' => 'La fecha de creación es obligatoria.',
+            'Created_at.date' => 'La fecha de creación no tiene un formato válido.',
+            'Updated_at.date' => 'La fecha de actualización no tiene un formato válido.',
+            'usuarios_id.exists' => 'El usuario asignado no existe.',
+        ];
+    }
 }
