@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Inventario\InventarioController;
+use App\Models\Produccion;
 use App\Models\Inventario;
+use App\Http\Controllers\Inventario\InventarioController;
+use App\Http\Controllers\Produccion\ProduccionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,6 +14,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])
 ->resource('inventario', InventarioController::class)
 ->names('inventario');
 
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])
+->resource('produccion', ProduccionController::class)
+->names('produccion');
 
 
 Route::middleware([

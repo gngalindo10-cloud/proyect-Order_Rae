@@ -34,7 +34,10 @@ class Produccion extends Model
 {
 	protected $table = 'produccion';
 	protected $primaryKey = 'ID_PRODUCCION';
-	public $timestamps = false;
+	public $timestamps = true;
+	const CREATED_AT = 'Created_at';
+	const UPDATED_AT = 'Updated_at';
+
 
 	protected $casts = [
 		'Cantidad_producto' => 'int',
@@ -52,19 +55,17 @@ class Produccion extends Model
 		'Color_producto',
 		'Cantidad_producto',
 		'Estado_producto',
-		'Created_at',
-		'Updated_at',
 		'usuarios_id',
 		'producto_id'
 	];
 
 	public function usuario()
 	{
-		return $this->belongsTo(Usuario::class, 'usuarios_id');
+		return $this->belongsTo(Usuario::class, 'usuarios_id', 'ID_USUARIO');
 	}
 
 	public function producto()
 	{
-		return $this->belongsTo(Producto::class);
+		return $this->belongsTo(Producto::class, 'producto_id', 'ID_PRODUCTO');
 	}
 }
