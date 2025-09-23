@@ -48,10 +48,9 @@ class Produccion extends Model
 	];
 
 	protected $fillable = [
-		'Codigo_producto',
+		'Referencia_producto',
 		'Categoria_producto',
 		'Material_producto',
-		'Tipo_de_producto',
 		'Color_producto',
 		'Cantidad_producto',
 		'Estado_producto',

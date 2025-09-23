@@ -11,7 +11,6 @@
                 'produccion'  => $produccion,   
                 'productos'   => $productos,
                 'usuarios'    => $usuarios,
-                'producciones' => $producciones, 
             ])
 
             <div class="pt-4 flex gap-3">

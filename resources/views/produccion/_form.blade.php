@@ -7,22 +7,22 @@
 
         <div class="space-y-6">
 
-            <!-- Código -->
+            <!-- Referencia -->
             <div class="relative z-0 w-full mb-6 group">
                 <input 
                     type="text" 
-                    name="Codigo_producto" 
-                    id="Codigo_producto" 
-                    value="{{ $val('Codigo_producto') }}" 
+                    name="Referencia_producto" 
+                    id="Referencia_producto" 
+                    value="{{ $val('Referencia_producto') }}" 
                     class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
                     placeholder=" " 
                     required 
                 />
-                <label for="Codigo_producto" class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600">Código</label>
-                @error('Codigo_producto')
+                <label for="Referencia_producto" class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600">Referencia</label>
+                @error('Referencia_producto')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
-            </div>    
+            </div>
 
             <!-- Categoría -->
             <div class="relative z-0 w-full mb-6 group">
@@ -54,23 +54,6 @@
                 />
                 <label for="Material_producto" class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600">Material</label>
                 @error('Material_producto')
-                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-            
-            <!-- Tipo de producto -->
-            <div class="relative z-0 w-full mb-6 group">
-                <input 
-                    type="text" 
-                    name="Tipo_producto" 
-                    id="Tipo_producto" 
-                    value="{{ $val('Tipo_producto') }}" 
-                    class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
-                    placeholder=" " 
-                    required 
-                />
-                <label for="Tipo_producto" class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-blue-600">Tipo de producto</label>
-                @error('Tipo_producto')
                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
@@ -161,7 +144,7 @@
                     <option value="" disabled {{ is_null($val('producto_id')) ? 'selected' : '' }}>Seleccione el producto</option>
                     @foreach($productos as $prod)
                         <option value="{{ $prod->ID_PRODUCTO }}" {{ $val('producto_id') == $prod->ID_PRODUCTO ? 'selected' : '' }}>
-                            {{ $prod->Nombre_producto ?? 'Producto sin nombre' }}
+                            {{ $prod->Referencia_producto ?? 'Producto sin nombre' }}
                         </option>
                     @endforeach
                 </select>

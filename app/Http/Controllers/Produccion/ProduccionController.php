@@ -32,7 +32,7 @@ class ProduccionController extends Controller
         return view('produccion.create', [
         'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO', 'Referencia_producto']),
         'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO', 'Nombres']),
-        'producciones' => Produccion::orderBy('Codigo_producto')->get(['ID_PRODUCCION', 'Codigo_producto']),
+        'producciones' => Produccion::orderBy('Referencia_producto')->get(['ID_PRODUCCION', 'Referencia_producto']),
         ]);
     }
 
@@ -41,6 +41,7 @@ class ProduccionController extends Controller
      */
     public function store(StoreProduccionRequest $request)
     {
+
         Produccion::create($request->validated());  
 
         return redirect()
@@ -65,7 +66,7 @@ class ProduccionController extends Controller
             'produccion' => $produccion,
             'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO', 'Referencia_producto']),
             'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO', 'Nombres']),
-            'producciones' => Produccion::orderBy('Codigo_producto')->get(['ID_PRODUCCION', 'Codigo_producto']),
+            'producciones' => Produccion::orderBy('Referencia_producto')->get(['ID_PRODUCCION', 'Referencia_producto']),
         ]);
     }
 

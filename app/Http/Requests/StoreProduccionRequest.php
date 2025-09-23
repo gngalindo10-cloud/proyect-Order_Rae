@@ -14,10 +14,9 @@ class StoreProduccionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Codigo_producto' => 'required|string|max:50',
+            'Refencia_producto' => 'required|string|max:50',
             'Categoria_producto' => 'required|string|max:50',
             'Material_producto' => 'required|string|max:50',
-            'Tipo_de_producto' => 'required|string|max:50',
             'Color_producto' => 'required|string|max:30',
             'Cantidad_producto' => 'required|integer|min:0',
             'Estado_producto' => 'required|string|in:Terminado,En espera,En Producción',
@@ -29,10 +28,9 @@ class StoreProduccionRequest extends FormRequest
     public function messages()
     {
         return [
-            'Codigo_producto.required' => 'El código del producto es obligatorio.',
+            'Refencia_producto.required' => 'La referencia del producto es obligatoria.',
             'Categoria_producto.required' => 'La categoría es obligatoria.',
             'Material_producto.required' => 'El material es obligatorio.',
-            'Tipo_de_producto.required' => 'El tipo de producto es obligatorio.',
             'Color_producto.required' => 'El color es obligatorio.',
             'Cantidad_producto.required' => 'Debe ingresar la cantidad.',
             'Cantidad_producto.integer' => 'La cantidad debe ser un número entero.',

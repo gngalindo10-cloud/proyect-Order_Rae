@@ -39,10 +39,9 @@
                 <table id="produccion" class="display w-full text-sm text-center text-black">
                     <thead class="text-base text-gray-500 uppercase bg-gray-50">
                         <tr>
-                            <th>Codigo</th>
+                            <th>Referencia</th>
                             <th>Categoría</th>
                             <th>Material</th>
-                            <th>Tipo_de_producto</th>
                             <th>Cantidad</th>
                             <th>Color</th>
                             <th>Estado</th>
@@ -52,10 +51,9 @@
                     <tbody>
                         @foreach ($producciones as $items)
                             <tr class="bg-white border-b hover:bg-gray-100">
-                                <td>{{ $items->Codigo_producto }}</td>
+                                <td>{{ $items->Referencia_producto }}</td>
                                 <td>{{ $items->Categoria_producto }}</td>
                                 <td>{{ $items->Material_producto }}</td>
-                                <td>{{ $items->Tipo_de_producto }}</td>
                                 <td>{{ $items->Color_producto }}</td>
                                 <td>{{ $items->Cantidad_producto }}</td>
                                 <td>{{ $items->Estado_producto }}</td>
