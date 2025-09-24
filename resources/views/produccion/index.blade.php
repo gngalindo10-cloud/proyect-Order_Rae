@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($producciones as $items)
+                        @foreach ($produccion as $items)
                             <tr class="bg-white border-b hover:bg-gray-100">
                                 <td>{{ $items->Referencia_producto }}</td>
                                 <td>{{ $items->Categoria_producto }}</td>

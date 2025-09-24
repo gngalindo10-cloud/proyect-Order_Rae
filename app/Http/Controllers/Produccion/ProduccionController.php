@@ -18,10 +18,10 @@ class ProduccionController extends Controller
      */
     public function index()
     {
-        $producciones = Produccion::with('Usuario', 'Producto')
+        $produccion = Produccion::with('usuario', 'producto')
         ->orderBy('ID_PRODUCCION')
         ->get();
-        return view('produccion.index', compact('producciones'));
+        return view('produccion.index', compact('produccion'));
     }
 
     /**
@@ -66,7 +66,6 @@ class ProduccionController extends Controller
             'produccion' => $produccion,
             'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO', 'Referencia_producto']),
             'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO', 'Nombres']),
-            'producciones' => Produccion::orderBy('Referencia_producto')->get(['ID_PRODUCCION', 'Referencia_producto']),
         ]);
     }
 

@@ -14,7 +14,7 @@ class StoreProduccionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Refencia_producto' => 'required|string|max:50',
+            'Referencia_producto' => 'required|string|max:50',
             'Categoria_producto' => 'required|string|max:50',
             'Material_producto' => 'required|string|max:50',
             'Color_producto' => 'required|string|max:30',
@@ -28,7 +28,7 @@ class StoreProduccionRequest extends FormRequest
     public function messages()
     {
         return [
-            'Refencia_producto.required' => 'La referencia del producto es obligatoria.',
+            'Referencia_producto.required' => 'La referencia del producto es obligatoria.',
             'Categoria_producto.required' => 'La categoría es obligatoria.',
             'Material_producto.required' => 'El material es obligatorio.',
             'Color_producto.required' => 'El color es obligatorio.',

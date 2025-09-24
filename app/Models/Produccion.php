@@ -13,11 +13,10 @@ use Illuminate\Database\Eloquent\Model;
  * Class Produccion
  * 
  * @property int $ID_PRODUCCION
- * @property string $Codigo_producto
+ * @property string $Referencia_producto
  * @property string $Categoria_producto
- * @property string $Material_producto
- * @property string $Tipo_de_producto
  * @property string $Color_producto
+ * @property string $Material_producto
  * @property int $Cantidad_producto
  * @property string $Estado_producto
  * @property Carbon $Created_at
@@ -40,7 +39,6 @@ class Produccion extends Model
 
 
 	protected $casts = [
-		'Cantidad_producto' => 'int',
 		'Created_at' => 'datetime',
 		'Updated_at' => 'datetime',
 		'usuarios_id' => 'int',

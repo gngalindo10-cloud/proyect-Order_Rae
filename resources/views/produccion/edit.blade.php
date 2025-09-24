@@ -20,7 +20,7 @@
                 >
                     Actualizar
                 </button>
-                <a href="{{ route('inventario.index') }}" class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50">
+                <a href="{{ route('produccion.index') }}" class="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50">
                     Cancelar
                 </a>
             </div>

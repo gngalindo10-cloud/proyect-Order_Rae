@@ -102,7 +102,7 @@
                     required
                 >
                     <option value="" disabled {{ is_null($val('Estado_producto')) ? 'selected' : '' }}>Seleccione el estado</option>
-                    <option value="Terminado" {{ $val('Estado_producto') == 'terminado' ? 'selected' : '' }}>TERMINADO</option>
+                    <option value="Terminado" {{ $val('Estado_producto') == 'Terminado' ? 'selected' : '' }}>TERMINADO</option>
                     <option value="En espera" {{ $val('Estado_producto') == 'En espera' ? 'selected' : '' }}>EN ESPERA</option>
                     <option value="En Producción" {{ $val('Estado_producto') == 'En Producción' ? 'selected' : '' }}>EN PRODUCCIÓN</option>
                 </select>
