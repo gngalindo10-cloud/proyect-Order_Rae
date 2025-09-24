@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Produccion') }}
+            {{ __('PRODUCCIÓN') }}
         </h2>
     </x-slot>
 
@@ -31,7 +31,7 @@
             <div class="mb-4 flex justify-end">
                 <a href="{{ route('produccion.create') }}"
                     class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-                    Crear Producto
+                    Acceder a Orden
                 </a>
             </div>
 

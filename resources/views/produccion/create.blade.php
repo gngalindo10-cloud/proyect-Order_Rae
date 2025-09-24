@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-2xl font-bold mb-6">Agregar Producto a Produccion</h1>
+        <h1 class="text-2xl font-bold mb-6"> ORDEN DE PRODUCCIÓN </h1>
 
         <form action="{{ route('produccion.store') }}" method="POST" class="space-y-6">
             @csrf
@@ -12,7 +12,7 @@
                 'usuarios'    => $usuarios,
             ])
 
-            <div class="pt-4 flex gap-3">
+            <div class="flex justify-center pt-4 flex gap-3">
                 <button 
                     type="submit" 
                     class="focus:outline-none text-white bg-green-700 hover:bg-green-800 
